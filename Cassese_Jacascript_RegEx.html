@@ -1,0 +1,237 @@
+<!-- John Cassese -->
+<!--Open Book, Exam 1 -->
+
+<!DOCTYPE html>
+<html>
+<title>Quiz 1- Question 2</title>
+<head>	
+
+<script type = "text/JavaScript">
+function checkVadility()
+{
+	flag = checkBarcode();
+	if(flag)
+	{
+		flag = checkDiscipline();
+		if(flag)
+		{
+			flag = checkTitle();
+			if(flag)
+			{
+				flag = checkISBN();
+				if(flag)
+				{
+					flag = checkSuggestedPrice();
+					if(flag)
+					{
+						alert("Good.")
+					}
+				}
+			}
+		}
+	}
+}
+	
+function checkBarcode()
+{
+	var Barcode = document.getElementById('Barcode').value;
+	var matchResult = Barcode.match(/^[1-9]\d\d\d\d\d$/);
+	if (matchResult)
+	{
+		return true;
+	}
+	else
+	{
+		alert("ERROR: 6-digit barcode, can't start with a 0");
+		return false;
+	}
+}
+
+function checkDiscipline()
+{
+	var Discipline = document.getElementById('Discipline').value;
+	var matchResult = Discipline.match(/^[A-Z]{3}$/);
+	if (matchResult)
+	{
+		return true;
+	}
+	else
+	{
+		alert("ERROR: Discipline has only 3 upper-case letters");
+		return false;
+	}
+}
+
+function checkTitle()
+{
+	var Title = document.getElementById('Title').value;
+	var matchResult = Title.match(/^[A-Z][A-Za-z0-9 ]*$/);
+	if (matchResult)
+	{
+		return true;
+	}
+	else
+	{
+		alert("ERROR: Title must start with upper-case");
+		return false;
+	}
+}
+
+function checkISBN()
+{
+	var ISBN = document.getElementById('ISBN').value;
+	var matchResult = ISBN.match(/^[0-9]{10}|[0-9]{13}?/)
+	if (matchResult)
+	{
+		return true;
+	}
+	else
+	{
+		alert("ERROR: ISBN is 10 or 13 digits");
+		return false;
+	}
+}
+	
+function checkSuggestedPrice()
+{
+	var SuggestedPrice = document.getElementById('SuggestedPrice').value;
+	var matchResult = SuggestedPrice.match(/^\d\d?.\d{2}/)
+	if (matchResult)
+	{
+		return true;
+	}
+	else
+	{
+		alert("ERROR: Price Format- digit, option digit, decimal, digit, digit");
+		return false;
+	}
+}	
+
+</script>
+
+</head>
+
+<body>
+
+	<img src = "EOP-logo.jpg" alt = "eoplogo" align = "right">
+	<div class = "websiteTitle">
+		<h2 id = "libsys">EOP Library System</h2>
+		<h3 id = "collegeAtBport">The College at Brockport</h3>
+	</div>
+	<br>
+	<!-- <center>Logged in as: User(800______)</center> -->
+	
+	<div id = "banner">Add a book</div>
+	
+	<br>
+	<div  id = "form">
+	<table class= "table table-striped" align = "center">
+	<tbody>
+	<form name = "myForm">
+	<tr>
+		<td id = "leftSide">Barcode:</td>
+		<td></td>
+		<td><input type = "text" name = "barcode" id = "Barcode" size = "15"/></td>
+		<td>Publisher</td>
+		<td><input type = "text" name = "publisher" size = "25"/></td>
+	</tr>
+	
+	<tr>
+		<td id = "leftSide">Discipline:</td>
+		<td></td>
+		<td><input type = "text" name = "discipline" id = "Discipline" size = "15"/>
+		<td></td>
+	</tr>
+	
+	<tr>
+		<td id = "leftSide">Title:</td>
+		<td></td>
+		<td><input type = "text" name = "title" id = "Title" size = "30"/>
+		<td>Year of Publication:</td>
+		<td>
+			<select name = "year of publication">
+			<option value = "1990">1990</control>
+			<option value = "1991">1991</control>
+			<option value = "1992">1992</control>
+			<option value = "1993">1993</control>
+			<option value = "1994">1994</control>
+			<option value = "1995">1995</control>
+			<option value = "1996">1996</control>
+			<option value = "1997">1997</control>
+			<option value = "1998">1998</control>
+			<option value = "1999">1999</control>
+			<option value = "2000">2000</control>
+			<option value = "2001">2001</control>
+			<option value = "2002">2002</control>
+			<option value = "2003">2003</control>
+			<option value = "2004">2004</control>
+			<option value = "2005">2005</control>
+			<option value = "2006">2006</control>
+			<option value = "2007">2007</control>
+			<option value = "2008">2008</control>
+			<option value = "2009">2009</control>
+			<option value = "2010">2010</control>
+			<option value = "2011">2011</control>
+			<option value = "2012">2012</control>
+			<option value = "2013">2013</control>
+			<option valuse = "2014" selected>2014</option>
+			</select>
+	</tr>
+	
+	<tr>
+		<td id = "leftSide">Author 1:</td>
+		<td></td>
+		<td><input type = "text" name = "author1" size = "25"/>
+		<td></td>
+	</tr>
+	
+	<tr>
+		<td id = "leftSide">Author 2:</td>
+		<td></td>
+		<td><input type = "text" name = "author2" size = "25"/>
+		<td>ISBN:</td>
+		<td><input type = "text" name = "isbn" id = "ISBN" size = "15"/>
+	</tr>
+	
+	<tr>
+		<td id = "leftSide">Author 3:</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td><input type = "text" name = "author3" size = "25"/>
+		<td></td>
+	</tr>
+	
+	<tr>
+		<td id = "leftSide">Author 4:</td>
+		<td></td>
+		<td><input type = "text" name = "author4" size = "25"/>
+		<td>Condition</td>
+		<td>
+			<select name = "condition">
+			<option value = "good">Good</option>
+			<option value = "fair">Fair</option>
+			<option value = "damaged">Damaged</option>
+			</select>
+	</tr>
+	
+	<tr>
+		<td id = "leftSide">Notes:</td>
+		<td></td>
+		<td>
+			<textarea class = "scrollabletextbox" name = "notes">
+			</textarea>
+		</td>
+		<td>Suggested Price:</td>
+		<td>$<input type = "text" name = "price" id = "SuggestedPrice" size = "4"/>
+	</tr>
+	</tbody>
+	</table>
+	<br>	
+	<div class = "buttons">
+	<input type = "button" value = "Submit Information" onclick = "checkVadility()"/>
+	<input type = "reset" value = "Reset" />
+	</div>
+	
+
+	</form>	
+</body>
+</html>
